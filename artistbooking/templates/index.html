@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+
+
+{% block title %}
+Artist Booking App
+{% endblock %}
+
+
+
+{% block body %}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron p-3">
+                <h2>Manage <strong>Artist</strong> <button type="button" class="btn btn-success float-right" data-bs-toggle="modal" data-bs-target="#addartistmodal">Add Artist</button></h2>
+            </div>
+
+            <div class="tabl">
+                <table class="table table-hover table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Venues</th>
+                        <th>Action</th>
+                    </tr>
+
+                    <tr>
+                        <td>01</td>
+                        <td>Nancy</td>
+                        <td>testnancy@gmail.com</td>
+                        <td>00232526884</td>
+                        <td>Yaounde</td>
+                        <td>
+                            <a href="" class="btn btn-warning btn-xs " data-bs-toggle="modal" data-bs-target="#editarticlemodal">Edit</a>
+                            <a href="" class="btn btn-danger btn-xs " onclick="return confrim('Are you sure you want to delet?')">Delet</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- modals -->
+            
+            <!-- Modal -->
+            <div class="modal fade" id="addartistmodal" tabindex="-1" aria-labelledby="addartistmodalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="addartistmodalLabel">Add Artist</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <form action="{{url_for('insert')}}" method="post">
+                    <div class="modal-body">
+                      ...
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" name="city"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" class="form-control" id="state" name="state"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Tel</label>
+                            <input type="number" class="form-control" id="phone" name="phone"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="genres">Genres</label>
+                            <input type="text" class="form-control" id="genres" name="genres"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="imagelink">Image link</label>
+                            <input type="text" class="form-control" id="imagelink" name="img_link"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="facebookLink">Facebook Link</label>
+                            <input type="text" class="form-control" id="facebookLink" name="fb_link"  required>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                </form>
+              </div>
+            </div>
+            <!-- end modal -->
+            <!-- edit  modal -->
+            <div class="modal fade" id="editarticlemodal" tabindex="-1" aria-labelledby="editarticlemodalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="leditarticlemodalLabel">Update Artist</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      
+                      <form action="" method="post">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" value="Nancy" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" name="city" value="testnancy@gmail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" class="form-control" id="state" name="state" value="testnancy@gmail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Tel</label>
+                            <input type="number" class="form-control" id="phone" name="phone" value="00232526884" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="genres">Genres</label>
+                            <input type="text" class="form-control" id="genres" name="genres" value="Yaounde" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="imagelink">Image link</label>
+                            <input type="text" class="form-control" id="imagelink" name="img_link" value="Yaounde" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="facebookLink">Facebook Link</label>
+                            <input type="text" class="form-control" id="facebookLink" name="fb_link" value="Yaounde" required>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Update Artist</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <!-- end  modal -->
+
+  
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
+
